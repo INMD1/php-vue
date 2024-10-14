@@ -1,65 +1,60 @@
-<div align="center">
-    <img src="ci-vue.webp" />
-    <h1>CodeIgniter 4 + Vue3 Application Starter</h1>
-</div>
+# CodeIgniter 4 Framework
 
-<p align="center">
-  <a href="https://github.com/firtadokei/ci-vue-appstarter/releases">
-    <img src="https://custom-icon-badges.herokuapp.com/github/v/release/firtadokei/ci-vue-appstarter?logo=tag">
-  </a>
-  <a href="https://packagist.org/packages/mihatori/ci-vue-appstarter">
-    <img src="https://badges.hiptest.com:/packagist/dt/mihatori/ci-vue-appstarter?color=%23c700ff&logo=packagist&logoColor=%23c700ff">
-  </a>
-  <img src="https://custom-icon-badges.herokuapp.com/packagist/l/mihatori/ci-vue-appstarter?logo=law">
-<p>
+## What is CodeIgniter?
 
-## Features:
-- 💡 Super fast single page application (SPA).
-- 🔥 Hot Module Replacment (HMR).
-- 🧩 Easy to install and update.
-- 🪓 Easy to customize.
-- 🔧 Zero Configuarations.
-- ⭐ Progressive web application (PWA).
-- ✨ And much more...
+CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
+More information can be found at the [official site](https://codeigniter.com).
 
-## Pre-packed:
+This repository holds the distributable version of the framework.
+It has been built from the
+[development repository](https://github.com/codeigniter4/CodeIgniter4).
 
-> **Note:** none of these plugins or frameworks are required, feel free to remove or replace them as you like.
-> 
-- [Windicss](https://windicss.org/): on-demand alternative to Tailwind, with bunch of additional cool features and much faster, (you can replace it with whenever css framework you like).
-- [Axios](https://axios-http.com): A simple promise based HTTP client for the browser and node.js.
-- [Vue Router](https://router.vuejs.org): official vue router plugin.
-- [Vite Plugin Pages](https://github.com/hannoeru/vite-plugin-pages): a lightweight file system based routing.
-- [Vite Plugin PWA](https://github.com/antfu/vite-plugin-pwa): zero config PWA plugin.
+More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
 
-## Installation:
+You can read the [user guide](https://codeigniter.com/user_guide/)
+corresponding to the latest version of the framework.
 
-> Make sure your server meets [CI4 requirements](https://www.codeigniter.com/user_guide/intro/requirements.html).
+## Important Change with index.php
 
-run the following command to create a project:
-```
-composer create-project mihatori/ci-vue-appstarter
-```
+`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
+for better security and separation of components.
 
-## Setup
+This means that you should configure your web server to "point" to your project's *public* folder, and
+not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
+framework are exposed.
 
-- Copy `env` to `.env`.
-- Run: `npm intall` to install node dependencies.
-- Run: `npm run dev` to serve your assets.
-- Now start you CI server: `php spark serve` or access it through you virtual host.
+**Please** read the user guide for a better explanation of how CI4 works!
 
-> **IMPORTANT:**
-> 
-> after the installation, there will be no bundled assets, so make sure to run `npm run dev` to serve them or just build them with `npm run build` command.
+## Repository Management
 
-## Customizing:
-This project uses [**CodeIgniter Vite**](https://github.com/firtadokei/codeigniter-vitejs) package, [read more about it](https://github.com/firtadokei/codeigniter-vitejs).
+We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
+We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
+FEATURE REQUESTS.
 
-## Something doesn't work fine:
-Please feel free to open an issue and we will try to fix it on the fly.
+This repository is a "distribution" one, built by our release preparation script.
+Problems with it can be raised on our forum, or as issues in the main repository.
 
-## Contribuiting:
-Literally any help will be appreciated, feel free to use PRs, and thanks in advance.
+## Contributing
 
-## Licence
-MIT License &copy; 2022 [Mihatori Kei](https://github.com/firtadokei)
+We welcome contributions from the community.
+
+Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+
+## Server Requirements
+
+PHP version 8.1 or higher is required, with the following extensions installed:
+
+- [intl](http://php.net/manual/en/intl.requirements.php)
+- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+
+> [!WARNING]
+> - The end of life date for PHP 7.4 was November 28, 2022.
+> - The end of life date for PHP 8.0 was November 26, 2023.
+> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
+> - The end of life date for PHP 8.1 will be December 31, 2025.
+
+Additionally, make sure that the following extensions are enabled in your PHP:
+
+- json (enabled by default - don't turn it off)
+- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
+- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
